@@ -18,7 +18,7 @@ function SelectedContact({ SelectedContactId, setSelectedContactId }) {
       }
     }
     fetchContact();
-  }, []);
+  }, [setSelectedContactId]);
   console.log(contact);
   return(<><div>{`${contact.name}`}</div></>)
 }
