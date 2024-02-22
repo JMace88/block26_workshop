@@ -5,6 +5,7 @@ function SelectedContact({ SelectedContactId, setSelectedContactId }) {
   const [contact, setContact] = useState();
 
   useEffect(() => {
+
     async function fetchContact() {
       try {
         console.log(SelectedContactId)
@@ -20,7 +21,15 @@ function SelectedContact({ SelectedContactId, setSelectedContactId }) {
     fetchContact();
   }, [setSelectedContactId]);
   console.log(contact);
-  return(<><div>{`${contact.name}`}</div></>)
+
+if (!contact){
+  return <div>Loading . . .</div>
+}
+
+  return(<div>
+    <p>{`${contact.name}`}</p>
+    <p>{`${contact.email}`}</p>
+    </div>)
 }
 
 export default SelectedContact;
